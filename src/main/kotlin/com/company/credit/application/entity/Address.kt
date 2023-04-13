@@ -1,16 +1,20 @@
 package com.company.credit.application.entity
 
-import jakarta.persistence.Entity
+import jakarta.persistence.Column
+import jakarta.persistence.Embeddable
 import jakarta.persistence.Id
 import jakarta.persistence.Table
 
-@Entity
-@Table(name = "address")
+@Embeddable
 data class Address (
+    @Column
     val street: String = "",
+    @Column
     val neighborhood: String = "",
+    @Column
     val locality: String = "",
+    @Column
     val uf: String = "",
-    val ddd: String = "",
-    @Id val zipCode: String = ""
+    @Column(nullable = false)
+    val zipCode: String = ""
 )

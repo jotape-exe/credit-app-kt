@@ -14,7 +14,7 @@ data class Costumer(
     val credits: List<Credit> = mutableListOf(),
     @Column(nullable = false)
     @Embedded
-    val address: Address = Address(),
+    var address: Address = Address(),
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null

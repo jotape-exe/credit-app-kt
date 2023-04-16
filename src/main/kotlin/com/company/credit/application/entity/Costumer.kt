@@ -1,6 +1,7 @@
 package com.company.credit.application.entity
 
 import jakarta.persistence.*
+import java.math.BigDecimal
 
 @Entity
 @Table(name = "costumer")
@@ -9,6 +10,8 @@ data class Costumer(
     val username: String,
     @Column(nullable = false)
     val cpf: String,
+    @Column(nullable = false)
+    val income: BigDecimal = BigDecimal.ZERO,
     @Column(nullable = false)
     @OneToMany(fetch = FetchType.LAZY, cascade = arrayOf(CascadeType.REMOVE, CascadeType.PERSIST), mappedBy = "costumer")
     val credits: List<Credit> = mutableListOf(),

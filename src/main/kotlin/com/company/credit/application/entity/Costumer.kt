@@ -7,14 +7,14 @@ import java.math.BigDecimal
 @Table(name = "costumer")
 data class Costumer(
     @Column(nullable = false)
-    val username: String,
+    var username: String,
     @Column(nullable = false)
-    val cpf: String,
+    var cpf: String,
     @Column(nullable = false)
-    val income: BigDecimal = BigDecimal.ZERO,
+    var income: BigDecimal = BigDecimal.ZERO,
     @Column(nullable = false)
     @OneToMany(fetch = FetchType.LAZY, cascade = arrayOf(CascadeType.REMOVE, CascadeType.PERSIST), mappedBy = "costumer")
-    val credits: List<Credit> = mutableListOf(),
+    var credits: List<Credit> = mutableListOf(),
     @Column(nullable = false)
     @Embedded
     var address: Address = Address(),

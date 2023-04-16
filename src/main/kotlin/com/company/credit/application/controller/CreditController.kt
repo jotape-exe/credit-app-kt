@@ -5,6 +5,7 @@ import com.company.credit.application.dto.response.CreditResponse
 import com.company.credit.application.dto.response.CreditResponseList
 import com.company.credit.application.entity.Credit
 import com.company.credit.application.service.CreditService
+import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -24,7 +25,7 @@ class CreditController(
 ) {
 
     @PostMapping("/create")
-    fun saveCredit(@RequestBody creditDTO: CreditDTO): ResponseEntity<Void> {
+    fun saveCredit(@RequestBody @Valid creditDTO: CreditDTO): ResponseEntity<Void> {
         val creditSaved: Credit = this.creditService.save(creditDTO.toEntity())
         val uri: URI = ServletUriComponentsBuilder.fromCurrentRequest()
             .path("/id").buildAndExpand(creditSaved.id).toUri()

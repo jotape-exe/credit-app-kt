@@ -2,15 +2,20 @@ package com.company.credit.application.dto.request
 
 import com.company.credit.application.entity.Address
 import com.company.credit.application.entity.Costumer
+import jakarta.validation.constraints.NotEmpty
+import jakarta.validation.constraints.NotNull
+import jakarta.validation.constraints.Size
 import java.math.BigDecimal
 
 data class CostumerUpdateDTO(
-    val username: String,
-    val income: BigDecimal,
-    val street: String,
-    val neighborhood: String,
-    val locality: String,
-    val uf: String,
+    @field:NotEmpty val username: String,
+    @field:NotNull val income: BigDecimal,
+    @field:NotEmpty val street: String,
+    @field:NotEmpty val neighborhood: String,
+    @field:NotEmpty val locality: String,
+    @field:NotEmpty val uf: String,
+    @field:NotEmpty
+    @field:Size(max = 8)
     val zipCode: String
 ) {
     fun toEntity(costumer: Costumer): Costumer {

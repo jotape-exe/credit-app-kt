@@ -1,6 +1,6 @@
 package com.company.credit.application.entity
 
-import com.company.credit.application.entity.enums.Status
+import com.company.credit.application.enums.Status
 import jakarta.persistence.*
 import java.math.BigDecimal
 import java.time.LocalDate
@@ -18,7 +18,7 @@ data class Credit(
     @Column
     val numberOfInstallment:Int = 0,
     @Enumerated
-    val status:Status = Status.IN_PROGRESS,
+    val status: Status = Status.IN_PROGRESS,
     @ManyToOne
     var costumer: Costumer? = null,
     @Id

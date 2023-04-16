@@ -9,14 +9,13 @@ data class CreditDTO(
     val creditValue: BigDecimal,
     val dayFirstInstallment: LocalDate,
     val numberOfInstallment:Int,
-    val costumer: Costumer,
-    val id:Long?
+    val costumerId: Long
 )
 {
     fun toEntity(): Credit = Credit(
         creditValue = this.creditValue,
         dayFirstInstallment = this.dayFirstInstallment,
         numberOfInstallment = this.numberOfInstallment,
-        costumer = Costumer(id = costumer.id)
+        costumer = Costumer(id = this.costumerId)
     )
 }

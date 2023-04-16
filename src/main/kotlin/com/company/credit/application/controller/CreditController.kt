@@ -40,8 +40,8 @@ class CreditController(
         return ResponseEntity.ok().body(credits)
     }
 
-    @GetMapping("/{id}/{creditCode}")
-    fun findByCreditCode(@PathVariable("id") costumerId: Long, @PathVariable("creditCode") creditCode: UUID): ResponseEntity<CreditResponse> {
+    @GetMapping("/{costumerId}/{creditCode}")
+    fun findByCreditCode(@PathVariable("costumerId") costumerId: Long, @PathVariable("creditCode") creditCode: UUID): ResponseEntity<CreditResponse> {
         val credit:Credit = this.creditService.findByCreditCode(costumerId, creditCode)
         return ResponseEntity.ok().body(CreditResponse(credit))
     }

@@ -7,9 +7,9 @@ import java.math.BigDecimal
 @Table(name = "costumer")
 data class Costumer(
     @Column(nullable = false)
-    var username: String,
+    var username: String = "",
     @Column(nullable = false)
-    var cpf: String,
+    var cpf: String = "",
     @Column(nullable = false)
     var income: BigDecimal = BigDecimal.ZERO,
     @Column(nullable = false)

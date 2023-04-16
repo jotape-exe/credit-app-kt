@@ -42,7 +42,10 @@ class CostumerController(private val costumerService: CostumerService) {
     }
 
     @DeleteMapping("/{id}")
-    fun deleteCostumer(@PathVariable id:Long): ResponseEntity<Void> = this.deleteCostumer(id)
+    fun deleteCostumer(@PathVariable id:Long): ResponseEntity<Void>{
+        this.deleteCostumer(id)
+        return ResponseEntity.noContent().build()
+    }
 
     @PatchMapping("/{id}")
     fun updateCostumer(@PathVariable id:Long, @RequestBody costumerUpdateDTO: CostumerUpdateDTO):ResponseEntity<Void>{

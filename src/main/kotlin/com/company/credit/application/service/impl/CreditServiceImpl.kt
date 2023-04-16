@@ -13,7 +13,7 @@ class CreditServiceImpl(
     private val creditRepository: CreditRepository,
     private val costumerService: CostumerService
 ) : CreditService {
-    override fun create(credit: Credit): Credit {
+    override fun save(credit: Credit): Credit {
         credit.apply {
             costumer = costumerService.getById(credit.costumer?.id!!)
         }

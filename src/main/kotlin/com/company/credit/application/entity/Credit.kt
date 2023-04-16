@@ -12,13 +12,13 @@ data class Credit(
     @Column(unique = true)
     val creditCode:UUID = UUID.randomUUID(),
     @Column
-    val creditValue: BigDecimal,
+    var creditValue: BigDecimal,
     @Column
-    val dayFirstInstallment: LocalDate,
+    var dayFirstInstallment: LocalDate,
     @Column
-    val numberOfInstallment:Int = 0,
+    var numberOfInstallment:Int = 0,
     @Enumerated
-    val status: Status = Status.IN_PROGRESS,
+    var status: Status = Status.IN_PROGRESS,
     @ManyToOne
     var costumer: Costumer? = null,
     @Id

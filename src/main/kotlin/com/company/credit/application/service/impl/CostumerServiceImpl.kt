@@ -13,7 +13,7 @@ class CostumerServiceImpl(
     private val zipCodeService: ZipCodeService
 ) : CostumerService {
 
-    override fun create(costumer: Costumer): Costumer {
+    override fun save(costumer: Costumer): Costumer {
         costumer.id = null
         return this.costumerRepository.save(costumer)
     }

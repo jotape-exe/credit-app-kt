@@ -1,6 +1,7 @@
 package com.company.credit.application.service.impl
 
 import com.company.credit.application.entity.Costumer
+import com.company.credit.application.exceptions.BusinessException
 import com.company.credit.application.repository.CostumerRepository
 import com.company.credit.application.service.CostumerService
 import com.company.credit.application.service.ZipCodeService
@@ -19,14 +20,13 @@ class CostumerServiceImpl(
     }
 
     override fun getById(id: Long): Costumer = this.costumerRepository.findById(id).orElseThrow {
-        throw RuntimeException("Costumer not found! ID -> $id")
+        throw BusinessException("Costumer not found! ID -> $id")
     }
 
     override fun getAll(): MutableList<Costumer> = this.costumerRepository.findAll()
 
-    override fun delete(id: Long) = try {
-        this.costumerRepository.deleteById(id)
-    } catch (ex: Exception) {
-        throw RuntimeException("Costumer not found! ID -> $id")
+    override fun delete(id: Long){
+        val costumer:Costumer = this.getById(id)
+        this.costumerRepository.delete(costumer)
     }
 }

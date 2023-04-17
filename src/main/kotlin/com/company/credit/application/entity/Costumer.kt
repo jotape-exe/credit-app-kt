@@ -8,7 +8,7 @@ import java.math.BigDecimal
 data class Costumer(
     @Column(nullable = false)
     var username: String = "",
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     var cpf: String = "",
     @Column(nullable = false)
     var income: BigDecimal = BigDecimal.ZERO,

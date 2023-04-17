@@ -1,6 +1,7 @@
 package com.company.credit.application.service.impl
 
 import com.company.credit.application.entity.Credit
+import com.company.credit.application.exceptions.BusinessException
 import com.company.credit.application.repository.CreditRepository
 import com.company.credit.application.service.CostumerService
 import com.company.credit.application.service.CreditService
@@ -24,9 +25,9 @@ class CreditServiceImpl(
 
     override fun findByCreditCode(costumerId: Long, creditCode: UUID): Credit {
         val credit: Credit = this.creditRepository.findByCreditCode(creditCode)
-            ?: throw RuntimeException("Creditcode not found! ID -> $creditCode")
+            ?: throw BusinessException("Creditcode not found! ID -> $creditCode")
 
-        return if (credit.costumer?.id == costumerId) credit else throw RuntimeException("Contact Admin")
+        return if (credit.costumer?.id == costumerId) credit else throw IllegalAccessException("Contact Admin")
 
     }
 }

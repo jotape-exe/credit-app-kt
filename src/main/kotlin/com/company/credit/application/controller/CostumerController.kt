@@ -44,7 +44,7 @@ class CostumerController(private val costumerService: CostumerService) {
 
     @DeleteMapping("/{id}")
     fun deleteCostumer(@PathVariable id:Long): ResponseEntity<Void>{
-        this.deleteCostumer(id)
+        this.costumerService.delete(id)
         return ResponseEntity.noContent().build()
     }
 

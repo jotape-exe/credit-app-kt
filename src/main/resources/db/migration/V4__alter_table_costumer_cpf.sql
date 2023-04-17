@@ -1,0 +1,1 @@
+ALTER TABLE costumer ADD CONSTRAINT uc_costumer_cpf UNIQUE (cpf);

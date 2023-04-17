@@ -6,7 +6,6 @@ import com.company.credit.application.repository.CostumerRepository
 import com.company.credit.application.service.CostumerService
 import com.company.credit.application.service.ZipCodeService
 import org.springframework.stereotype.Service
-import java.lang.RuntimeException
 
 @Service
 class CostumerServiceImpl(
